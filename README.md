@@ -1,9 +1,10 @@
 # tessa
 The Exchange Server Smart Assistant 
 TESSA is an all in one home server and smart asistant solution. It intergrates Samba Server, Pi-Hole, Google Assistant, and various web api's to deliver to you all the information you need to start your day. Because most of those programs are not my code they will not be featured here. What is featured here is a GUI that displays weather, news, system status, and sensor data to the user. The Tessa hardware consists of a Raspberry Pi 4, external harddrive, 12 position switch, lcd touchscreen, and BME 680 sensor. 
-For testing purposes if you would like to use the tessa program without the physcial hardware please see "MAKE IT WORK" 
 
-TESSA presently has two Alpha versions. One designed to use the above hardware. It will eventually be intergrated into a smart watch solution. The other Alpha version is simular but meant to be used with a static server which is running the other functions of TESSA (ad blocker, smart assistant, media sever). The PC only GUI should work out of the box on any Raspberry Pi 4. For other hardware you may need to make changes to some code. See "MAKE IT WORK for PC"
+TESSA presently has two Alpha versions. One designed to use the above hardware. It will eventually be intergrated into a smart watch solution. The other Alpha version is simular but meant to be used with a static server which is running the other functions of TESSA (ad blocker, media sever).
+
+For testing purposes if you would like to use the tessa program without the physcial hardware please see "MAKE IT WORK" and "MAKE IT WORK for PC"
 
 
 
