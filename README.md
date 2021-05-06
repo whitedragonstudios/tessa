@@ -3,6 +3,8 @@ The Exchange Server Smart Assistant
 TESSA is an all in one home server and smart asistant solution. It intergrates Samba Server, Pi-Hole, Google Assistant, and various web api's to deliver to you all the information you need to start your day. Because most of those programs are not my code they will not be featured here. What is featured here is a GUI that displays weather, news, system status, and sensor data to the user. The Tessa hardware consists of a Raspberry Pi 4, external harddrive, 12 position switch, lcd touchscreen, and BME 680 sensor. 
 For testing purposes if you would like to use the tessa program without the physcial hardware please see "MAKE IT WORK" 
 
+TESSA presently has two Alpha versions. One designed to use the above hardware. It will eventually be intergrated into a smart watch solution. The other Alpha version is simular but meant to be used with a static server which is running the other functions of TESSA (ad blocker, smart assistant, media sever). The PC only GUI should work out of the box on any Raspberry Pi 4. For other hardware you may need to make changes to some code. See "MAKE IT WORK for PC"
+
 
 
 
@@ -13,4 +15,11 @@ MAKE IT WORK
 4) In the def f6_storage_report(): fuction, on line 407 you will need to modify "hdd = [path to a hdd on your computer]"
 5) In the def sys_report(): function on line 114 you will need to modify "temp_cpu = psutil.sensors_temperatures()['cpu_thermal'][0][1]" to point to a sensor location on your computer. See psutil documentation to help find its address. Alternativly you could just change it to a int or float number that will remain static.
 6) Tessa uses two web api's (openweathermap.org and newsapi.org) to deliver data to the user. If you would like the program to work you will to get api keys from these websites. They are free and super easy to sign up for. You can manully add those to the tessa_config.json file or via buttons on the settings page, "Change Weather Key", "Change News Key".
+Once these changes have been made you should get full functionallity out of tessa without the hardware its designed to use. PLEASE comment if you encounter other hardward com errors. 
+
+MAKE IT WORK for PC
+1) The core of tessa's functions draw on a config file which (for now) you will need to download. Eventually I will be publishing a setup script that will guide users through the setup process. Which will create the config file for you. Since that isn't implimented you will need to download "default_tessa_config.json". Once downloaded rename it to "tessa_config.json" and place it in a directory "~/TESSA/config/". You can modify this path on line 569. 
+2) In the def f6_storage_report(): fuction, on line 365 you will need to modify "hdd = [path to a hdd on your computer]"
+3) In the def sys_report(): function on line 139 you will need to modify "temp_cpu = psutil.sensors_temperatures()['cpu_thermal'][0][1]" to point to a sensor location on your computer. See psutil documentation to help find its address. Alternativly you could just change it to a int or float number that will remain static.
+4) Tessa uses two web api's (openweathermap.org and newsapi.org) to deliver data to the user. If you would like the program to work you will to get api keys from these websites. They are free and super easy to sign up for. You can manully add those to the tessa_config.json file or via buttons on the settings page, "Change Weather Key", "Change News Key".
 Once these changes have been made you should get full functionallity out of tessa without the hardware its designed to use. PLEASE comment if you encounter other hardward com errors. 
