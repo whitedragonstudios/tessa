@@ -605,9 +605,9 @@ def f7_change_source_buttons():
 
 # Switch Page Function
 def switch_IO():
-    # detects possition of switch and changes pages accordingly
-    # TO DO: determine if a for loop would be more effient.
-    if GPIO.input(26) == GPIO.HIGH: #SW01
+    # detects the position of the switch and changes pages accordingly
+    # TO DO: determine if a for loop would be more efficient.
+    if GPIO.input(26) == GPIO.HIGH: #SW01 orange
         sw_positions[0] = "LOW"
         sw_positions[1] = "HIGH"
         sw_positions[2] = "LOW"
@@ -616,7 +616,7 @@ def switch_IO():
         sw_positions[5] = "LOW"
         sw_positions[6] = "LOW"
         sw_positions[7] = "LOW"
-    if GPIO.input(13) == GPIO.HIGH: #SW02
+    if GPIO.input(13) == GPIO.HIGH: #SW02 yellow
         sw_positions[0] = "LOW"
         sw_positions[1] = "LOW"
         sw_positions[2] = "HIGH"
@@ -625,7 +625,7 @@ def switch_IO():
         sw_positions[5] = "LOW"
         sw_positions[6] = "LOW"
         sw_positions[7] = "LOW"
-    if GPIO.input(6) == GPIO.HIGH: #SW03
+    if GPIO.input(6) == GPIO.HIGH: #SW03 purple
         sw_positions[0] = "LOW"
         sw_positions[1] = "LOW"
         sw_positions[2] = "LOW"
@@ -634,7 +634,7 @@ def switch_IO():
         sw_positions[5] = "LOW"
         sw_positions[6] = "LOW"
         sw_positions[7] = "LOW"
-    if GPIO.input(5) == GPIO.HIGH: #SW04
+    if GPIO.input(5) == GPIO.HIGH: #SW04 green
         sw_positions[0] = "LOW"
         sw_positions[1] = "LOW"
         sw_positions[2] = "LOW"
@@ -643,7 +643,7 @@ def switch_IO():
         sw_positions[5] = "LOW"
         sw_positions[6] = "LOW"
         sw_positions[7] = "LOW"
-    if GPIO.input(16) == GPIO.HIGH: #SW04 Physical fault on swtich must turn dial twice on F4
+    if GPIO.input(16) == GPIO.HIGH: #SW04 grey. Physical fault on the switch must turn the dial twice on F4 
         sw_positions[0] = "LOW"
         sw_positions[1] = "LOW"
         sw_positions[2] = "LOW"
@@ -652,7 +652,7 @@ def switch_IO():
         sw_positions[5] = "LOW"
         sw_positions[6] = "LOW"
         sw_positions[7] = "LOW"
-    if GPIO.input(12)== GPIO.HIGH: #SW05
+    if GPIO.input(12)== GPIO.HIGH: #SW05 brown
         sw_positions[0] = "LOW"
         sw_positions[1] = "LOW"
         sw_positions[2] = "LOW"
@@ -661,7 +661,7 @@ def switch_IO():
         sw_positions[5] = "HIGH"
         sw_positions[6] = "LOW"
         sw_positions[7] = "LOW"
-    if GPIO.input(25)== GPIO.HIGH: #SW06
+    if GPIO.input(25)== GPIO.HIGH: #SW06 blue
         sw_positions[0] = "LOW"
         sw_positions[1] = "LOW"
         sw_positions[2] = "LOW"
@@ -670,7 +670,7 @@ def switch_IO():
         sw_positions[5] = "LOW"
         sw_positions[6] = "HIGH"
         sw_positions[7] = "LOW"
-    if GPIO.input(24)== GPIO.HIGH: #SW07
+    if GPIO.input(24)== GPIO.HIGH: #SW07 red
         sw_positions[0] = "LOW"
         sw_positions[1] = "LOW"
         sw_positions[2] = "LOW"
@@ -727,20 +727,20 @@ sw07 = "LOW"
 sw_positions = [sw00, sw01, sw02, sw03, sw04, sw05, sw06, sw07]
 
 # Sensor Setup
-i2c = I2C(board.SCL, board.SDA)
+i2c = I2C(board.SCL, board.SDA) #gpio 3, 2 white, blue
 bme680 = adafruit_bme680.Adafruit_BME680_I2C(i2c)
 bme680.sea_level_pressure = 1023.9 # hPa at sea level customize for each location
 
 # Switch Setup
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(26,GPIO.IN, GPIO.PUD_DOWN)
-GPIO.setup(13,GPIO.IN, GPIO.PUD_DOWN)
-GPIO.setup(6,GPIO.IN, GPIO.PUD_DOWN)
-GPIO.setup(5,GPIO.IN, GPIO.PUD_DOWN)
-GPIO.setup(16,GPIO.IN, GPIO.PUD_DOWN)
-GPIO.setup(12,GPIO.IN, GPIO.PUD_DOWN)
-GPIO.setup(25,GPIO.IN, GPIO.PUD_DOWN)
-GPIO.setup(24,GPIO.IN, GPIO.PUD_DOWN)
+GPIO.setup(26,GPIO.IN, GPIO.PUD_DOWN) #orange
+GPIO.setup(13,GPIO.IN, GPIO.PUD_DOWN) #yellow
+GPIO.setup(6,GPIO.IN, GPIO.PUD_DOWN) # purple
+GPIO.setup(5,GPIO.IN, GPIO.PUD_DOWN) # green
+GPIO.setup(16,GPIO.IN, GPIO.PUD_DOWN) # grey
+GPIO.setup(12,GPIO.IN, GPIO.PUD_DOWN) # brown 
+GPIO.setup(25,GPIO.IN, GPIO.PUD_DOWN) # blue
+GPIO.setup(24,GPIO.IN, GPIO.PUD_DOWN) # red
 
 # Fonts >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 Lf = ('Hack', 30) # large font
